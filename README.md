@@ -125,13 +125,11 @@ The project successfully demonstrates the complete design workflow of a **32-bit
 ```text
 32-bit-Universal-Shift-Register/
 │
-├── Documentation/     # Project report and documentation
 ├── Images/            # Screenshots and PCB renders
 ├── KiCad/             # KiCad project files
 ├── Logisim/           # Logisim simulation files
 ├── Gerber/            # Manufacturing (Gerber & Drill) files
 ├── Datasheets/        # Component datasheets
-├── Videos/            # Project demonstration videos
 └── README.md          # Project overview
 ```
 
