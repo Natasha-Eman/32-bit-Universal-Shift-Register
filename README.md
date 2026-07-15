@@ -1,167 +1,211 @@
-# 32-bit Universal Shift Register
+# Modular 32-bit Universal Shift Register
 
-> Digital Logic → PCB Design → Hardware Implementation
+![KiCad](https://img.shields.io/badge/KiCad-PCB%20Design-blue)
+![Logisim](https://img.shields.io/badge/Logisim-Digital%20Logic-green)
+![GitHub](https://img.shields.io/badge/GitHub-Project-black)
 
-### Digital Logic Design
+## Repository Contents
 
-![Logisim Circuit](Images/01_Logisim.png)
+- 📄 Documentation
+- 🖥️ Logisim Designs
+- 📐 KiCad Schematics
+- 🛠 PCB Layouts
+- 📦 Gerber Files
+- 🎨 3D PCB Models
 
-### Schematic
+## Table of Contents
 
-![Schematic](Images/02_Schematic.png)
-
-### PCB Layout
-
-![PCB Layout](Images/03_PCB_Layout.png)
-
-### 3D PCB View
-
-![3D PCB View](Images/04_3D_View.png)
-
-
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Project Development](#project-development)
+- [Design Decisions](#design-decisions)
+- [Project Structure](#project-structure)
+- [Software & Tools Used](#software--tools-used)
+- [Design Files](#design-files)
+- [Future Improvements](#future-improvements)
+- [License](#license)
+- [Author](#author)
 
 ## Overview
 
-This project demonstrates the complete engineering workflow of designing and implementing a **32-bit Universal Shift Register**, beginning with digital logic simulation in **Logisim Evolution** and progressing to physical PCB design in **KiCad**.
+This project presents the design and implementation of a **modular 32-bit Universal Shift Register (USR)**, developed as a personal learning project during my BS Electrical Engineering studies.
 
-The project was developed using a modular approach. A reusable **4-bit Universal Shift Register module** was first designed, verified, and optimized before being expanded into a complete **32-bit architecture**. This methodology simplified debugging, improved design verification, and created a scalable hardware solution.
+The project began with digital logic design in **Logisim Evolution**, where the complete Universal Shift Register was designed and verified from the gate level. After validating the logic, the design was implemented in **KiCad** as a modular hardware system consisting of two printed circuit boards:
 
-Throughout the project, emphasis was placed not only on implementing the required functionality—**Hold, Shift Left, Shift Right, and Parallel Load**—but also on understanding the engineering process behind digital hardware development, including logic verification, schematic capture, PCB layout, routing, ground plane design, and Design Rule Checking (DRC).
+- **Main Logic Board** – Implements the core Universal Shift Register logic.
+- **Interface Board** – Provides LEDs, current-limiting resistors, and headers for visualization and user interaction.
 
-The final PCB successfully passed **KiCad Design Rule Checking (DRC) with zero errors**, demonstrating that the design is electrically consistent and ready for fabrication.
+The modular architecture improves maintainability, simplifies debugging, and allows the logic board to be reused independently of the user interface.
 
-## Features
+The repository contains the complete design process, including digital logic, schematics, PCB layouts, 3D models, manufacturing files, and project documentation.
 
-- Implements a complete **32-bit Universal Shift Register** architecture.
-- Supports all four fundamental operations:
-  - Hold
-  - Shift Left
-  - Shift Right
-  - Parallel Load
-- Designed using a **modular 4-bit architecture** for scalability and easier verification.
-- Digital logic designed and validated in **Logisim Evolution** before hardware implementation.
-- Complete schematic capture and PCB layout developed in **KiCad**.
-- Two-layer PCB with organized component placement and copper routing.
-- Ground plane implementation for improved PCB design practices.
-- Successfully passed **KiCad Design Rule Check (DRC)** with **zero errors**.
-- Ready for PCB fabrication through generated **Gerber** and **Drill** files.
+## Key Features
+- Modular 32-bit Universal Shift Register architecture
+- Custom digital logic designed and verified in Logisim Evolution
+- Two-board PCB architecture developed in KiCad
+- Main Logic Board and separate Interface Board
+- Complete schematic capture and PCB layout
+- Design Rule Check (DRC) completed with zero errors
+- Manufacturing-ready Gerber and Drill files
+- 3D PCB visualization
+- Modular design for easier debugging and future expansion
 
-## System Architecture
+# Project Specifications
 
-The project follows a modular architecture in which a reusable **4-bit Universal Shift Register module** serves as the fundamental building block of the complete system. The project follows a modular architecture in which a reusable **4-bit Universal Shift Register PCB module** serves as the fundamental building block of the complete system. The module is designed to be replicated **eight times**, allowing the construction of a complete **32-bit Universal Shift Register** while simplifying verification, debugging, and future hardware expansion.
+| Item | Description |
+|------|-------------|
+| Register Width | 32-bit |
+| Core Logic IC | 74LS194 Universal Shift Register |
+| PCB Design Software | KiCad |
+| Logic Design Software | Logisim Evolution |
+| Architecture | Modular Two-Board Design |
+| DRC Status | Passed (0 Errors) |
+| Manufacturing Files | Included |
 
-### Design Flow
+The project was developed incrementally, beginning with digital logic verification before progressing to PCB implementation and manufacturing-ready outputs.
 
-```text
-Digital Logic Design (Logisim Evolution)
-                │
-                ▼
-      4-bit Universal Shift Register
-                │
-                ▼
-      Verification & Debugging
-                │
-                ▼
-      Schematic Design (KiCad)
-                │
-                ▼
-      PCB Layout & Routing
-                │
-                ▼
-      Ground Plane & DRC Verification
-                │
-                ▼
-      Gerber & Drill File Generation
-                │
-                ▼
-     32-bit Hardware Implementation
+## Project Development
+
+## Digital Logic Design (Logisim Evolution)
+
+The following figures illustrate the progression of the project from digital logic design to PCB implementation.
+
+| 4:1 Multiplexer | 1-bit Universal Shift Register |
+|-----------------|-------------------------------|
+| ![](Images/01_MUX_Logic.png) | ![](Images/02_1Bit_USR.png) |
+
+*Figure 1. Custom multiplexer (left) and 1-bit Universal Shift Register (right).*
+
+<br>
+
+| Complete 32-bit Universal Shift Register |
+|------------------------------------------|
+| ![](Images/03_32Bit_USR.png) |
+
+*Figure 2. Complete 32-bit Universal Shift Register verified in Logisim Evolution.*
+
+## Hardware Implementation (KiCad)
+
+### Main Logic Board
+
+| PCB Layout | Schematic |
+|------------|-----------|
+| ![](Images/04_Main_Board_PCB.png) | ![](Images/05_Main_Board_Schematic.png) |
+
+*Figure 4. PCB Layout (left) and Schematic (right) of the Main Logic Board.*
+
+<br>
+
+| Modular Slice PCB | 3D View |
+|-------------------|---------|
+| ![](Images/06_Main_Board_Slice_PCB.png) | ![](Images/07_Main_Board_3D.png) |
+
+*Figure 5. Modular PCB slice (left) and 3D rendering (right) of the Main Logic Board.*
+
+### Interface Board
+
+| PCB Layout | Schematic |
+|------------|-----------|
+| ![](Images/08_Interface_Board_PCB.png) | ![](Images/09_Interface_Board_Schematic.png) |
+
+*Figure 6. PCB Layout (left) and Schematic (right) of the Interface Board.*
+
+<br>
+
+| 3D View |
+|----------|
+| ![](Images/10_Interface_Board_3D.png) |
+
+*Figure 7. 3D rendering of the Interface Board.*
+
+
+## Design Decisions
+
+Several engineering decisions were made during the development of this project to improve modularity, maintainability, and ease of debugging.
+
+### Modular Hardware Architecture
+
+Rather than combining the complete system onto a single PCB, the design was divided into two independent boards:
+
+- **Main Logic Board** – Implements the Universal Shift Register logic.
+- **Interface Board** – Contains LEDs, current-limiting resistors, and user interface headers.
+
+Separating the interface circuitry from the logic circuitry results in a cleaner PCB layout, simplifies routing, and allows the logic board to be reused with different interface modules.
+
+### Engineering Workflow
+
+Instead of designing the hardware directly, the project followed a structured engineering workflow:
+
+1. Design and verify the logic in Logisim Evolution.
+2. Validate the complete 32-bit architecture.
+3. Design the hardware implementation in KiCad.
+4. Perform PCB Design Rule Checking (DRC).
+5. Generate manufacturing-ready Gerber and Drill files.
+
+This workflow reduced design errors before hardware implementation and provided confidence in the final PCB design.
+
+## Project Structure
+
 ```
 
-## PCB Design
+32-bit-Universal-Shift-Register
+├── Datasheets/
+├── Gerber/
+│   ├── Logic_Board/
+│   └── Interface_Board/
+├── Images/
+├── KiCad/
+│   ├── Logic Board/
+│   └── Interface Board/
+├── Logisim/
+├── README.md
+└── LICENSE
 
-The PCB was designed using **KiCad** after completing and verifying the digital logic in **Logisim Evolution**. The objective was to transform the simulated design into a manufacturable hardware module while following good PCB design practices.
+## Software & Tools Used
 
-The PCB development process included:
+| Software | Purpose |
+|----------|---------|
+| Logisim Evolution | Digital logic design and verification |
+| KiCad | Schematic capture, PCB layout, and 3D visualization |
+| Git | Version control |
+| GitHub | Project hosting and documentation |
 
-- Schematic capture
-- Footprint assignment
-- Component placement
-- Signal routing
-- Ground plane implementation
-- Design Rule Checking (DRC)
-- 3D model verification
-- Gerber and Drill file generation
+## Design Files
 
-The final PCB successfully passed **KiCad Design Rule Checking (DRC)** with **zero errors**, confirming that the design satisfies the defined electrical and manufacturing rules before fabrication.
+The repository includes all files required to study, modify, or manufacture the project:
 
-## Design Challenges
-
-One of the most significant challenges during this project occurred during the digital logic design phase. While testing the custom logic implementation, some multiplexer select states did not operate as expected. Instead of redesigning the circuit immediately, the logic was analyzed systematically at the gate level to identify the root cause. The issue was traced to an incorrect decode stage, and after correcting the logic, all four operating modes functioned correctly.
-
-Another challenge was transitioning from digital simulation to PCB design. This required learning schematic capture, footprint assignment, component placement, PCB routing, copper pours, and manufacturing file generation using KiCad. Careful verification throughout the design process ensured that the final PCB passed **Design Rule Checking (DRC)** with **zero errors** and was prepared for fabrication.
-
-This project reinforced the importance of systematic debugging, verification before implementation, and careful PCB design practices when transforming a digital logic design into hardware.
-
-## Results
-
-The project successfully demonstrates the complete design workflow of a **32-bit Universal Shift Register**, progressing from digital logic simulation to PCB implementation.
-
-### Achievements
-
-- Successfully designed and verified the digital logic in **Logisim Evolution**.
-- Developed a reusable **4-bit Universal Shift Register PCB module** that can be replicated to construct a complete **32-bit Universal Shift Register**.
-- Completed the complete schematic and PCB layout using **KiCad**.
-- Successfully implemented all required Universal Shift Register operations:
-  - Hold
-  - Shift Left
-  - Shift Right
-  - Parallel Load
-- Generated manufacturing-ready **Gerber** and **Drill** files.
-- Successfully passed **KiCad Design Rule Checking (DRC)** with **zero errors**.
-- Verified the PCB design using KiCad's integrated **3D Viewer**.
-
-## Repository Structure
-
-```text
-32-bit-Universal-Shift-Register/
-│
-├── Images/            # Screenshots and PCB renders
-├── KiCad/             # KiCad project files
-├── Logisim/           # Logisim simulation files
-├── Gerber/            # Manufacturing (Gerber & Drill) files
-├── Datasheets/        # Component datasheets
-└── README.md          # Project overview
-```
+- Logisim Evolution project files
+- KiCad schematic files
+- KiCad PCB layout files
+- 3D PCB models
+- Manufacturing-ready Gerber files
+- Drill files
+- Images and documentation
 
 ## Future Improvements
 
-While the project successfully demonstrates the complete design workflow from digital logic simulation to PCB implementation, several enhancements can be incorporated in future revisions.
+Possible future enhancements include:
 
-Potential improvements include:
+- Hardware testing using fabricated PCBs
+- Functional verification of the complete 32-bit hardware
+- Integration with FPGA or microcontroller-based systems
+- Expansion into larger modular register architectures
 
-- Manufacture and assemble the PCB for hardware validation.
-- Experimentally verify all operating modes using physical testing.
-- Optimize component placement and routing for improved PCB organization.
-- Reduce the overall board size while maintaining signal integrity.
-- Minimize the number of vias where practical to simplify manufacturing.
-- Extend the modular architecture to support larger digital systems.
-- Explore modern logic families or programmable devices such as CPLDs or FPGAs for higher-speed implementations.
+## License
+
+This project is released under the MIT License.
 
 ## Author
 
-### Natasha Eman
+**Natasha Eman**
 
-**BS Electrical Engineering Student**  
-FAST National University (NUCES), Pakistan
+BS Electrical Engineering Student
+FAST National University of Computer and Emerging Sciences (FAST-NUCES)
 
-### Areas of Interest
 
-- Digital Hardware Design
-- PCB Design
-- Embedded Systems
-- Computer Vision
-- Embedded AI
+GitHub: https://github.com/Natasha-Eman
 
+<<<<<<< HEAD
 ### Technologies & Tools
 
 - KiCad
@@ -175,3 +219,6 @@ FAST National University (NUCES), Pakistan
 This project represents my journey from digital logic simulation to PCB implementation, with the goal of strengthening my understanding of practical hardware design and engineering workflows.
 
 I welcome constructive feedback and suggestions for improving both the design and the documentation.
+=======
+LinkedIn: https://www.linkedin.com/in/natasha-eman-368531329
+>>>>>>> ecc2cd1 (Refactor project into modular two-board architecture and update documentation)
